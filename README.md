@@ -1,6 +1,6 @@
 # ElementAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+This is simple example of Angular Element, this project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
 ## Development server
 
@@ -25,3 +25,5 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## NOTE: "target": "es2015" added in tsconfig.json, // This line solve the problem uncaught typeerror: failed to construct 'htmlelement': please use the 'new' operator
