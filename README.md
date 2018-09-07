@@ -26,4 +26,35 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## NOTE: "target": "es2015" added in tsconfig.json, // This line solve the problem uncaught typeerror: failed to construct 'htmlelement': please use the 'new' operator
+## NOTE: 
+"target": "es2015" added in tsconfig.json, // This line solve the problem uncaught typeerror: failed to construct 'htmlelement': please use the 'new' operator
+
+## To Add element to any other non-Angular Project or simple html page
+
+# 1. Under project folder, create elements-build.js file:
+const fs = require('fs-extra');
+const concat = require('concat');
+
+(async function build() {
+    const files = [
+        './dist/ElementAngular/runtime.js',
+        './dist/ElementAngular/polyfills.js',
+        './dist/ElementAngular/scripts.js',
+        './dist/ElementAngular/main.js',
+    ]
+
+    await fs.ensureDir('elements');
+
+    await concat(files, 'elements/incrementor-element.js');
+
+    await fs.copyFile('./dist/ElementAngular/styles.css', 'elements/styles.css');
+
+})()
+
+# 2.In package.json, add a build command to NPM scripts:
+
+"scripts": {
+    "build:elements": "ng build --prod --output-hashing none && node elements-build.js"
+  }
+  
+# 3.  Run command: npm run build:elements, we can see that the project tree is updated:
