@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es2015", // This line solve the problem uncaught typeerror: failed to construct 'htmlelement': please use the 'new' operator
     "typeRoots": [
       "node_modules/@types"
     ],
